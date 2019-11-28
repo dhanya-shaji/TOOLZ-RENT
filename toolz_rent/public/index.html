@@ -10,6 +10,73 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <!-- Theme Style-->
+    <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css">
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- This is Sidebar menu CSS -->
+    <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- This is a Animation CSS -->
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <!-- This is a Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- color CSS you can use different color css from css/colors folder -->
+    <!-- We have chosen the skin-blue (default.css) for this starter
+         page. However, you can choose any other skin from folder css / colors .
+         -->
+    <link href="assets/css/colors/megna-dark.css" id="theme" rel="stylesheet">
+    <link href="https://diegoddox.github.io/react-redux-toastr/7.1/react-redux-toastr.min.css" rel="stylesheet" type="text/css">
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <style type="text/css">
+    html{
+      font-size: 16px;
+    }
+      a{
+        cursor:pointer !important;
+      }
+      .custom-ui {
+    text-align: center;
+    width: 500px;
+    padding: 40px;
+    background: #28bae6;
+    box-shadow: 0 20px 75px rgba(0, 0, 0, 0.23);
+    color: #fff;
+  }
+  .custom-ui > button {
+    width: 160px;
+    padding: 10px;
+    border: 1px solid #fff;
+    margin: 10px;
+    cursor: pointer;
+    background: none;
+    color: #fff;
+    font-size: 14px;
+}
+.table-responsive{
+  overflow-x:scroll!important;
+  overflow-y:scroll!important;
+}
+    </style>
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+  
+
+ 
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+
+
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -41,10 +108,25 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    
+    <!-- ================== BEGIN BASE JS ================== -->
+    <!-- jQuery -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Sidebar menu plugin JavaScript -->
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--Slimscroll JavaScript For custom scroll-->
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="assets/js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="assets/js/custom.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/scripts/main.cba69814a806ecc7945a.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+ 
+
   </body>
 </html>
