@@ -26,6 +26,7 @@ class AddRent extends Component {
       Tool_Id: "",
       Tid: "",
       status:"No Due",
+      id:'',
     };
     this.props.Customerrequest();
     this.props.Toolsrequest();
@@ -43,7 +44,6 @@ class AddRent extends Component {
     let Rent_Rfid = values.Rent_Rfid;
     let RDate = values.Rdate;
     let DDate = values.DDate;
-    //console.log("state:", this.state.rfid);
     this.setState({
       Rent_Rfid: Rent_Rfid,
       RDate: RDate,
@@ -96,7 +96,9 @@ class AddRent extends Component {
       Tquantity:this.state.Tquantity,
       Status:this.state.Status
     });
+  
     this.setState({  loading: true });
+    
   };
   //add rent
   onAddrent = () => {
@@ -198,10 +200,8 @@ class AddRent extends Component {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder=""
                             name="Rent_Rfid"
                             value={this.state.Rent_Rfid}
-                            onChange={this.handleChange}
                           />
                         </div>
                         <div className="col-md-4 mx-auto">
@@ -209,10 +209,8 @@ class AddRent extends Component {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Rent date"
                             name="RDate"
                             value={this.state.RDate}
-                            onChange={this.handleChange}
                           />
                         </div>
                         <div className="col-md-4 mx-auto">
@@ -223,7 +221,6 @@ class AddRent extends Component {
                             placeholder="Due date"
                             name="DDate"
                             value={this.state.DDate}
-                            onChange={this.handleChange}
                           />
                         </div>
                       </div>
@@ -232,7 +229,7 @@ class AddRent extends Component {
                         <label>Customer name:</label>
                         <div>
                           <select
-                            defaultValue="1"
+                            //defaultValue="1"
                             className="form-control"
                             name="CName"
                             value={this.state.CName}
@@ -252,7 +249,7 @@ class AddRent extends Component {
                           <label>Tool name:</label>
                           <select
                             className="form-control"
-                            defaultValue="1"
+                            //defaultValue="1"
                             name="Tname"
                             value={this.state.Tname}
                             onChange={event => this.handleChange(event)}
@@ -330,12 +327,6 @@ class AddRent extends Component {
         <div className="col-lg-12">
           <div className="main-card mb-3 card">
             <div className="card-body">
-              <button
-                className="btn-wide mb-2 mr-2 btn-icon btn btn-primary btn"
-                onClick={() => this.refreshTable()}
-              >
-                Refresh
-              </button>
               <table className="mb-0 table table-borderless">
                 <thead>
                   <tr>
@@ -385,7 +376,8 @@ const mapStateToProps = state => ({
   isRentitemAdd: state.Rent.isRentitemAdd,
   rentitemResponse: state.Rent.rentitemResponse,
   isRentitemDelete: state.Rent.isRentitemDelete,
-  toolsbyidresponse: state.Tools.toolsbyidresponse
+  toolsbyidresponse: state.Tools.toolsbyidresponse,
+
 });
 const mapDispatchToProps = {
   ...RentAction,

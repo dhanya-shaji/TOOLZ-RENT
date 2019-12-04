@@ -131,7 +131,20 @@ case RentAction.RENT_ITEM_DELETE_REQUEST:
                         isRentitemAdd:1
                         
                     }
-    
+    //rent item status update
+    case RentAction.RENTITEM_STATUS_UPDATE:
+        return {
+            ...state,
+            isRentitemStatusUpdate:0
+        }
+    case RentAction.RENTITEM_STATUS_UPDATE_SUCCESS:
+        return {
+            ...state,
+            isRentitemStatusUpdate:1
+            
+        }
+
+
 
             default:
                 return {

@@ -94,7 +94,7 @@ if(this.props.isRentDelete!==nextProps.isRentDelete){
                       <div className="page-title-icon">
                         <i className="pe-7s-pen icon-gradient bg-tempting-azure"></i>
                       </div>
-                      <div>Rent Tables</div>
+                      <div>Rent Details</div>
                     </div>
                     <div className="page-title-actions">
                   <div className="d-inline-block dropdown">

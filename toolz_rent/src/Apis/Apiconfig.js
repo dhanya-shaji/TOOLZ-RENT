@@ -20,6 +20,7 @@ export const  Apiconfig={
         DeleteRentItem:"http://localhost/Tool_Rent_Api/retitem.php?type=Delete",
         UpdaterentItem:"http://localhost/Tool_Rent_Api/retitem.php?type=Update",
         Count:"http://localhost/Tool_Rent_Api/count.php?type=getByAllId",
-        SelectToolById:"http://localhost/Tool_Rent_Api/tools.php?type=getById"
+        SelectToolById:"http://localhost/Tool_Rent_Api/tools.php?type=getById",
+        RentItemStatusUpdate:"http://localhost/Tool_Rent_Api/retitem.php?type=Update&id=",
     }
 }  

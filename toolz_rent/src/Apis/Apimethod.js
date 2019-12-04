@@ -23,6 +23,7 @@ const DeleteRentItemUrl=Apiconfig.apis.DeleteRentItem;
 const UpdateRentIemUrl=Apiconfig.apis.UpdaterentItem;
 const countUrl=Apiconfig.apis.Count;
 const ToolByIdUrl=Apiconfig.apis.SelectToolById;
+const UpdateRentItemStatusUrl=Apiconfig.apis.RentItemStatusUpdate;
 //login
 export function get(endPoint) {
     // console.log(endPoint); debugger;
@@ -284,6 +285,19 @@ export function deleterentItem(endPoint) {
      )
      .then((responseJson) => {
         if (responseJson.usercode===1) {
+             return ({ response: responseJson})
+        }
+         }
+     )
+ } 
+ export function UpdateRentItemStatus(endPoint) {
+    //console.log(endPoint); 
+     return fetch(UpdateRentItemStatusUrl+ endPoint,{method: 'GET'})
+     .then(
+         (response) => response.json()
+     )
+     .then((responseJson) => {
+        if (responseJson.resultcode===1) {
              return ({ response: responseJson})
         }
          }

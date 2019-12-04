@@ -73,3 +73,10 @@ export const Rent_Item_Add_Request=createAction(RENTITEM_ADD_REQUEST);
 export const RENTITEM_ADD_SUCCESS="RENTITEM_ADD_SUCCESS"
 export const Rent_Item_Add_Sucess=createAction(RENTITEM_ADD_SUCCESS);
 
+//rentitem status updation
+export const RENTITEM_STATUS_UPDATE ="RENTITEM_STATUS_UPDATE"
+export const RentItem_status_update_request=createAction(RENTITEM_STATUS_UPDATE);
+
+export const RENTITEM_STATUS_UPDATE_SUCCESS="RENTITEM_STATUS_UPDATE_SUCCESS"
+export const RentItem_status_update_Sucess=createAction(RENTITEM_STATUS_UPDATE_SUCCESS);
+

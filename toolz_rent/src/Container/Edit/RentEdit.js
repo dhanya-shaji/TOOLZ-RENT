@@ -10,43 +10,47 @@ class RentEdit extends Component {
       id: "",
       Rent_Rfid:'',
       Totalprice:[],
+      Rent_Item_Id:'',
+      loading:false,
       
     };
     this.onUpdateStatus=this.onUpdateStatus.bind(this);
+    this.refresh=this.refresh.bind(this);
+    this.TotalPriceupdate=this.TotalPriceupdate.bind(this);
   }
   componentWillMount() {
     let values = queryString.parse(this.props.location.search);
     let Id = values.id;
     let Rfid=values.rfid;
-    //console.log(" rent edit id",Id);
-    //console.log("rfid",Rfid);
     this.props.getrentById({ id: Id });
     this.props.RentItem_select_Request({Rent_Rfid:Rfid});
+    
    
   }
-  onUpdateStatus(Rent_Item_Id){
-    console.log(Rent_Item_Id);
-    fetch(
-      'http://localhost/Tool_Rent_Api/retitem.php?type=Update&id='+Rent_Item_Id
-    ).then(function(response) {
-      window.location.reload();
-      return response.json();
-      
-  } );
+  componentWillReceiveProps(nextProps) {
+    if (this.props.rentitemResponse !== nextProps.rentitemResponse) {
+     let totalPrice=0;
+    nextProps.rentitemResponse.map((item)=>(
+      totalPrice=parseFloat(totalPrice)+parseFloat(item.Total_Price)
+    ))
+    console.log("Total price",totalPrice);
   
+    }
+    if (this.props.isRentitemStatusUpdate!==nextProps.isRentitemStatusUpdate) {
+      if (nextProps.isRentitemStatusUpdate===1) {
+        this.setState({loading:false});
+        this.refresh();
+      }
+    }
+  }
+  
+  onUpdateStatus(Rent_Item_Id){
+    //console.log(Rent_Item_Id);
+    this.props.RentItem_status_update_request({Rent_Item_Id:Rent_Item_Id});
+    this.setState({  loading: true }); 
 }
 refresh=()=>{
   window.location.reload();
-}
-componentWillReceiveProps(nextProps) {
-  if (this.props.rentitemResponse !== nextProps.rentitemResponse) {
-   let totalPrice=0;
-  nextProps.rentitemResponse.map((item)=>(
-    totalPrice=parseFloat(totalPrice)+parseFloat(item.Total_Price)
-  ))
-  console.log("Total price",totalPrice);
-
-  }
 }
  
 
@@ -116,7 +120,7 @@ TotalPriceupdate(){
                       <td>
                         <LaddaButton
                           loading={this.state.loading}
-                         onClick={() =>this.onUpdateStatus(item.Rent_Item_Id)}
+                         onClick={()=>this.onUpdateStatus(item.Rent_Item_Id)}
                           data-color="#eee"
                           data-size={XS}
                           data-style={ZOOM_OUT}
@@ -147,6 +151,7 @@ const mapStateToProps = state => ({
   getrentbyIdresponse: state.Rent.getrentbyIdresponse,
   error: state.Rent.error,
   rentitemResponse:state.Rent.rentitemResponse,
+  isRentitemStatusUpdate:state.Rent.isRentitemStatusUpdate,
   
 });
 const mapDispatchToProps = {

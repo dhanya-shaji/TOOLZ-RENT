@@ -1,6 +1,8 @@
 import {put, call,takeEvery} from 'redux-saga/effects';
 import {RentAction} from '../Actions/index';
-import {insertRentItem,getRentitem
+import {insertRentItem,
+    getRentitem,
+    UpdateRentItemStatus
     
 } from '../Apis/Apimethod'
 function* Rent_Item_Add_Request(action){
@@ -32,8 +34,22 @@ function* RentItem_select_Request(action){
         yield put(RentAction.Rent_Item_Select_Sucess(response))
     }
 
+//status updation of rentitem
+    function* RentItem_status_update_request(action){
+        const Rent_status_update_response = yield call(UpdateRentItemStatus,
+            '&id='+action.payload.Rent_Item_Id);
+        const response=Rent_status_update_response.response;
+        if(response.resultcode===1){
+        console.log('hjjj',Rent_status_update_response);
+            yield put(RentAction.RentItem_status_update_Sucess(response))
+        }
+    }
+
+
+
 export default function* RentItemSaga(){
     yield takeEvery(RentAction.RENTITEM_ADD_REQUEST,Rent_Item_Add_Request);
     yield takeEvery(RentAction.RENTITEM_SELECT_REQUEST,RentItem_select_Request);
+    yield takeEvery(RentAction.RENTITEM_STATUS_UPDATE,RentItem_status_update_request);
     
 }

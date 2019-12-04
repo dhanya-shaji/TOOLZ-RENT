@@ -123,7 +123,8 @@ import LaddaButton, { XS, ZOOM_OUT } from "react-ladda"
                           type="text"
                           className="form-control"
                           placeholder="Phonenumber"
-                          name="CPhonenumber"                          
+                          name="CPhonenumber" 
+                          maxLength="10"                         
                           required
                           value={this.state.CPhonenumber}
                           onChange={this.handleChange}
@@ -138,6 +139,7 @@ import LaddaButton, { XS, ZOOM_OUT } from "react-ladda"
                         className="form-control"
                         name="CEmail"
                         placeholder="Email"
+                        required
                         value={this.state.CEmail}
                         onChange={this.handleChange}
                       />
@@ -148,7 +150,7 @@ import LaddaButton, { XS, ZOOM_OUT } from "react-ladda"
                       <div>
                         <input
                           type="text" 
-                          size="10"
+                          maxLength="10"
                           className="form-control"
                           placeholder="Mobile number"
                           name="CMobile"
